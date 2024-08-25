@@ -1,0 +1,26 @@
+{%extends 'base.html'%}
+
+{%block title%}
+{{title}}
+{%endblock title%}
+
+{%block Contents%}
+<form action="" method="POST">
+    {%for field in form%}
+        {%for error in field.errors%}
+            <span class="label label-warning">
+                {{error}}
+            </span>
+        {%endfor%}
+        <div class="control-label">
+            {{field.label}}:
+        </div>
+        {{field}}
+        <br>
+    {%endfor%}
+    {%csrf_token%}
+    <button type="submit">
+        Login
+    </button>
+</form>
+{%endblock Contents%}

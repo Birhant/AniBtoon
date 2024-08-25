@@ -1,0 +1,18 @@
+{%extends 'base.html'%}
+{%block Contents%}
+<form action="" method="POST" class="form-group ">
+    {%include 'form.html'%}
+    {% csrf_token %}
+    <button type="submit" class="btn btn-primary">
+        Add
+    </button>
+</form>
+{%endblock Contents%}
+
+
+
+
+
+
+
+

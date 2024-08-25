@@ -1,0 +1,40 @@
+{%extends 'base.html'%}
+{%block title%}
+{{title}}
+{%endblock title%}
+
+{%block Contents%}
+{%include 'film/film.html'%}
+
+<form action="" method="POST" class="form-group">
+    {%for field in form%}
+        <div class="control-label">
+            {{field.label_tag}}
+        </div>
+        {{field}}
+        {%for error in field.errors%}
+            <span class="label label-danger">
+                {{error}}
+            </span>
+        {%endfor%}
+    {%endfor%}
+    <br>
+    <div class="control-label">
+        <label for="parent">
+            Parent :
+        </label>    
+    </div>
+    <select id="parent" name="parent" >
+        {%for film in film_titles%}
+        <option value="{{film}}">
+            {{film}}
+        </option>
+        {%endfor%}
+    </select>
+    <br>
+    <button class="btn btn-primary" type="submit">
+        Add
+    </button>
+    {%csrf_token%}
+</form>
+{%endblock Contents%}
